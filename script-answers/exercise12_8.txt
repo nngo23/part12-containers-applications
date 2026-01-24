@@ -1,0 +1,106 @@
+Script started on 2026-01-25 00:09:53+02:00 [TERM="xterm-256color" TTY="/dev/pts/6" COLUMNS="120" LINES="30"]
+[?2004h]0;nngo23@MSI: /mnt/d/part12-containers-applications/script-answers[01;32mnngo23@MSI[00m:[01;34m/mnt/d/part12-containers-applications/script-answers[00m$ cd [7m/mnt/d/part12-containers-applications/todo-app/todo-[27m[7mb[27m[7mackend[27m[A
+]0;nngo23@MSI: /mnt/d/part12-containers-applications/script-answers[01;32mnngo23@MSI[00m:[01;34m/mnt/d/part12-containers-applications/script-answers[00m$ [C[C[C/mnt/d/part12-containers-applications/todo-app/todo-backend
+[?2004l
+[?2004h]0;nngo23@MSI: /mnt/d/part12-containers-applications/todo-app/todo-backend[01;32mnngo23@MSI[00m:[01;34m/mnt/d/part12-containers-applications/todo-app/todo-backend[00m$ [7mdocker exec -it todo-backend-mongo bash[27mdocker exec -it todo-backend-mongo bash
+[?2004l
+[?2004hroot@be2b85f23b4f:/# [7mmongosh -u root -p example --authenticationDatabase admin[27m
+root@be2b85f23b4f:/# mongosh -u root -p example --authenticationDatabase admin
+[?2004l
+]0;mongosh mongodb://<credentials>@127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&authSource=adminCurrent Mongosh Log ID:	697543836fa6f08bfa8ce5af
+Connecting to:		[1m[32mmongodb://<credentials>@127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&authSource=admin&appName=mongosh+2.6.0[0m
+Using MongoDB:		8.2.3
+[1m[33mUsing Mongosh[0m:		2.6.0
+
+For mongosh info see: https://www.mongodb.com/docs/mongodb-shell/
+
+[1G[0J [1G[?2004h[1m[33m------[0m
+   [1m[33mThe server generated these startup warnings when booting[0m
+   2026-01-24T16:41:07.789+00:00: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem
+   2026-01-24T16:41:08.690+00:00: For customers running the current memory allocator, we suggest changing the contents of the following sysfsFile
+   2026-01-24T16:41:08.690+00:00: For customers running the current memory allocator, we suggest changing the contents of the following sysfsFile
+   2026-01-24T16:41:08.690+00:00: We suggest setting the contents of sysfsFile to 0.
+   2026-01-24T16:41:08.690+00:00: vm.max_map_count is too low
+   2026-01-24T16:41:08.690+00:00: We suggest setting swappiness to 0 or 1, as swapping can cause performance problems.
+[1m[33m------[0m
+
+[1G[0Jtest> [7Guse the_database
+
+switched to db the_database
+[1G[0Jthe_database> [15Gshow collections
+
+[1mtodos[0m
+[1G[0Jthe_database> [15Gdb.todos.find({})
+
+[
+  {
+    _id: ObjectId([32m'6974e789d73d1e42838ce5b0'[39m),
+    text: [32m'Write code'[39m,
+    done: [33mtrue[39m
+  },
+  {
+    _id: ObjectId([32m'6974e789d73d1e42838ce5b1'[39m),
+    text: [32m'Learn about containers'[39m,
+    done: [33mfalse[39m
+  },
+  {
+    _id: ObjectId([32m'6974f7db0e97d80020e09b47'[39m),
+    done: [33mtrue[39m,
+    __v: [33m0[39m,
+    text: [32m'Updated todo text'[39m
+  }
+]
+[1G[0Jthe_database> [15Gdb.todos.insertOne({db.todos.insertOne({[1G[0Jthe_database> db.todos.insertOne({db.todos.insertOne([54G[1G[0Jthe_database> db.todos.insertOne({db.todos.insertOne[53G[1G[0Jthe_database> db.todos.insertOne({db.todos.insertOn[52G[1G[0Jthe_database> db.todos.insertOne({db.todos.insertO[51G[1G[0Jthe_database> db.todos.insertOne({db.todos.insert[50G[1G[0Jthe_database> db.todos.insertOne({db.todos.inser[49G[1G[0Jthe_database> db.todos.insertOne({db.todos.inse[48G[1G[0Jthe_database> db.todos.insertOne({db.todos.ins[47G[1G[0Jthe_database> db.todos.insertOne({db.todos.in[46G[1G[0Jthe_database> db.todos.insertOne({db.todos.i[45G[1G[0Jthe_database> db.todos.insertOne({db.todos.[44G[1G[0Jthe_database> db.todos.insertOne({db.todos[43G[1G[0Jthe_database> db.todos.insertOne({db.todo[42G[1G[0Jthe_database> db.todos.insertOne({db.tod[41G[1G[0Jthe_database> db.todos.insertOne({db.to[40G[1G[0Jthe_database> db.todos.insertOne({db.t[39G[1G[0Jthe_database> db.todos.insertOne({db.[38G[1G[0Jthe_database> db.todos.insertOne({db[37G[1G[0Jthe_database> db.todos.insertOne({d[36G[1G[0Jthe_database> db.todos.insertOne({[35Gtext[33mtext[39m: [32m"[39m[32mI[39m[32mn[39m[32mc[39m[32mr[39m[32me[39m[32ma[39m[32ms[39m[32me[39m [32mt[39m[32mh[39m[32me[39m [32mn[39m[32mu[39m[32mm[39m[32mb[39m[32me[39m[32mr[39m [32mo[39m[32mf[39m [32mt[39m[32mo[39m[32mo[39m[32ml[39m[32ms[39m [32mi[39m[32mn[39m [32mm[39m[32my[39m [32mt[39m[32mo[39m[32mo[39m[32ml[39m [32mb[39m[32me[39m[32ml[39m[32mt[39m[32m"[39m,d[36mdo[39mdone: fals[33mfalse[39m)[1G[0Jthe_database> db.todos.insertOne({[33mtext[39m: [32m"Increase the number of tools in my tool belt"[39m,[33mdone[39m: [33mfalse[39m[99G})
+
+{
+  acknowledged: [33mtrue[39m,
+  insertedId: ObjectId([32m'697544166fa6f08bfa8ce5b0'[39m)
+}
+[1G[0Jthe_database> [15Gd[36mdo[39mdone: fals[33mfalse[39m[1G[0Jthe_database> done: fals[25G[1G[0Jthe_database> done: fal[24G[1G[0Jthe_database> done: fa[23G[1G[0Jthe_database> done: f[22G[1G[0Jthe_database> done: [21G[1G[0Jthe_database> done:[20G[1G[0Jthe_database> done[19G[1G[0Jthe_database> don[18G[1G[0Jthe_database> [36mdo[39m[17G[1G[0Jthe_database> d[16G[1G[0Jthe_database> [15Gdb.todos.find()_[1G[0Jthe_database> db.todos.find()[30G[1G[0Jthe_database> db.todos.find([29G{})
+
+[
+  {
+    _id: ObjectId([32m'6974e789d73d1e42838ce5b0'[39m),
+    text: [32m'Write code'[39m,
+    done: [33mtrue[39m
+  },
+  {
+    _id: ObjectId([32m'6974e789d73d1e42838ce5b1'[39m),
+    text: [32m'Learn about containers'[39m,
+    done: [33mfalse[39m
+  },
+  {
+    _id: ObjectId([32m'6974f7db0e97d80020e09b47'[39m),
+    done: [33mtrue[39m,
+    __v: [33m0[39m,
+    text: [32m'Updated todo text'[39m
+  },
+  {
+    _id: ObjectId([32m'697544166fa6f08bfa8ce5b0'[39m),
+    text: [32m'Increase the number of tools in my tool belt'[39m,
+    done: [33mfalse[39m
+  }
+]
+[1G[0Jthe_database> [15Gexit
+
+[?2004l]0;[?2004hroot@be2b85f23b4f:/# .exit
+[?2004l
+bash: .exit: command not found
+[?2004hroot@be2b85f23b4f:/# exit
+[?2004l
+exit
+[?2004h]0;nngo23@MSI: /mnt/d/part12-containers-applications/todo-app/todo-backend[01;32mnngo23@MSI[00m:[01;34m/mnt/d/part12-containers-applications/todo-app/todo-backend[00m$ exit
+[?2004l
+exit
+
+Script done on 2026-01-25 00:33:01+02:00 [COMMAND_EXIT_CODE="127"]
+
+PS C:\Users\ngong> cd 'D:\part12-containers-applications\todo-app\todo-backend'
+PS D:\part12-containers-applications\todo-app\todo-backend> Invoke-RestMethod http://localhost:3000/todos
+
+_id                      text                                          done
+---                      ----                                          ----
+6974e789d73d1e42838ce5b0 Write code                                    True
+6974e789d73d1e42838ce5b1 Learn about containers                       False
+6974f7db0e97d80020e09b47 Updated todo text                             True
+697544166fa6f08bfa8ce5b0 Increase the number of tools in my tool belt False

@@ -9,6 +9,7 @@
   "dependencies": {
     "cors": "^2.8.5",
     "debug": "~2.6.9",
+    "dotenv": "^17.2.3",
     "express": "~4.16.1",
     "mongoose": "^5.13.2",
     "morgan": "~1.9.1",
@@ -16,5 +17,10 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.12"
-  }
+  },
+  "description": "Install dependencies with `npm install`",
+  "main": "app.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
