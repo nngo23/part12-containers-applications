@@ -17,5 +17,9 @@ services:
     container_name: todo-backend-redis
     ports:
       - "6379:6379"
+    volumes:
+      - redis_data:/data
+
 volumes:
   mongo_data:
+  redis_data:
