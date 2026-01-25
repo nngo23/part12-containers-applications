@@ -1,2 +1,2 @@
-const { Todo } = require("./models/Todo"); // fixed path
+const { Todo } = require("./models/Todo");
 module.exports = { Todo };

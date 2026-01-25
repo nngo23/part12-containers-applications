@@ -1,17 +1,4 @@
 services:
-  app:
-    build: .
-    container_name: todo-backend-app
-    ports:
-      - "3000:3000"
-    environment:
-      MONGO_URL: "mongodb://root:example@mongo:27017/the_database?authSource=admin"
-    depends_on:
-      - mongo
-    command: npm run dev
-    volumes:
-      - .:/usr/src/app
-      - /usr/src/app/node_modules
   mongo:
     image: mongo:latest
     container_name: todo-backend-mongo
