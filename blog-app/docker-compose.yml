@@ -1,0 +1,40 @@
+services:
+  blogapp-backend-mongo:
+    image: mongo:latest
+    volumes:
+      - mongo_data:/data/db
+
+  blogapp-backend:
+    image: blogapp-backend-prod
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    environment:
+      - MONGO_URL=mongodb://blogapp-backend-mongo:27017/blogapp_db
+      - PORT=3003
+      - NODE_ENV=production
+    depends_on:
+      - blogapp-backend-mongo
+  blogapp-frontend:
+    image: blogapp-frontend
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+      args:
+        VITE_BACKEND_URL: /api
+    depends_on:
+      - blogapp-backend
+    container_name: blogapp-frontend-prod
+
+  nginx:
+    image: nginx:1.25-alpine
+    container_name: reverse-proxy-prod
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    ports:
+      - "8080:80"
+    depends_on:
+      - blogapp-backend
+
+volumes:
+  mongo_data:
