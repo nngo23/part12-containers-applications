@@ -1,17 +1,16 @@
 services:
   todo-frontend:
     image: todo-frontend-dev
-    build:
-      context: ./todo-frontend
-      dockerfile: dev.Dockerfile
+    volumes:
+      - ./todo-frontend/:/usr/src/app
+      - /usr/src/app/node_modules
     environment:
       - VITE_BACKEND_URL=/api
 
   todo-backend-mongo:
     image: mongo:latest
     volumes:
-      - mongo_data:/data/db
-
+      - mongo_data:/data
   todo-backend-redis:
     image: redis:latest
     volumes:
@@ -19,12 +18,12 @@ services:
 
   todo-backend:
     image: todo-backend-dev
-    build:
-      context: ./todo-backend
-      dockerfile: dev.Dockerfile
+    volumes:
+      - ./todo-backend/:/usr/src/app
     environment:
       - MONGO_URL=mongodb://todo-backend-mongo:27017/the_database
       - REDIS_URL=redis://todo-backend-redis:6379
+
     depends_on:
       - todo-backend-mongo
       - todo-backend-redis

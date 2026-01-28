@@ -1,40 +1,49 @@
 services:
-  blogapp-backend-mongo:
+  todo-backend-mongo:
     image: mongo:latest
     volumes:
       - mongo_data:/data/db
 
-  blogapp-backend:
-    image: blogapp-backend-prod
+  todo-backend-redis:
+    image: redis:latest
+    volumes:
+      - redis_data:/data
+
+  todo-backend:
+    image: todo-backend-prod
     build:
-      context: ./server
+      context: ./todo-backend
       dockerfile: Dockerfile
     environment:
-      - MONGO_URL=mongodb://blogapp-backend-mongo:27017/blogapp_db
-      - PORT=3003
+      - MONGO_URL=mongodb://todo-backend-mongo:27017/the_database
+      - REDIS_URL=redis://todo-backend-redis:6379
       - NODE_ENV=production
     depends_on:
-      - blogapp-backend-mongo
-  blogapp-frontend:
-    image: blogapp-frontend
+      - todo-backend-mongo
+      - todo-backend-redis
+
+  todo-frontend:
+    image: todo-frontend
     build:
-      context: ./client
+      context: ./todo-frontend
       dockerfile: Dockerfile
       args:
         VITE_BACKEND_URL: /api
     depends_on:
-      - blogapp-backend
-    container_name: blogapp-frontend-prod
+      - todo-backend
+    container_name: todo-frontend-prod
 
   nginx:
     image: nginx:1.25-alpine
     container_name: reverse-proxy-prod
     volumes:
+      - ./todo-frontend/dist:/usr/share/nginx/html:ro
       - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
     ports:
       - "8080:80"
     depends_on:
-      - blogapp-backend
+      - todo-backend
 
 volumes:
   mongo_data:
+  redis_data:
