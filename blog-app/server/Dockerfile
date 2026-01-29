@@ -2,15 +2,15 @@ FROM node:20
   
 WORKDIR /usr/src/app
 
+COPY package*.json ./
+RUN npm install --omit=dev
 COPY --chown=node:node . .
-
-RUN npm ci 
 
 ENV DEBUG=server:*
   
 USER node
 
-EXPOSE 3000
+EXPOSE 3003
 ENV NODE_ENV=production
 
-CMD ["node", "server.js"]
+CMD ["node", "index.js"]

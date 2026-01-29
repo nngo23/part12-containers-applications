@@ -7,7 +7,6 @@ export default defineConfig({
   server: {
     host: true,
     port: 5173,
-    strictPort: true,
     hmr: {
       host: "localhost",
     },
@@ -25,7 +24,7 @@ export default defineConfig({
     setupFiles: "./testSetup.js",
   },
   build: {
-    outDir: path.join(__dirname, "..", "server", "public"),
+    outDir: path.join(__dirname, "dist"),
     emptyOutDir: true,
   },
 });
